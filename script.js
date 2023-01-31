@@ -1,38 +1,43 @@
 const hourText = document.getElementById('hour');
 const minText = document.getElementById('min');
 const secText = document.getElementById('sec');
-let secCount = 0;
-let changeSec = setInterval(secChange, 1000)
-let minCount = 0;
-let changeMin = setInterval(MinChange, 60000)
+let secCount = 45;
+let timer = setInterval(timeChange, 1000);
+let minCount = 59;
+let hourCount = 11;
 
-function secChange() {
+function timeChange() {
     secCount += 1;
     secText.innerHTML = secCount;
     if (secCount === 60) {
-        clearInterval(changeSec);
-        secCount= 0;
-        setInterval(secChange, 1000);
+        secCount = 0;
+        minCount += 1;
+        minText.innerHTML = minCount;
     }
-}
-function minChange() {
-    minCount += 1;
-    minText.innerHTML = minCount;
-    if (minCount === 60) {
-        clearInterval(changeMin);
-        minCount= 0;
-        setInterval(minChange, 1000);
+    if (secCount < 10) {
+        secText.innerHTML = ':0' + secCount
+    } else{
+        secText.innerHTML = ':' + secCount
     }
-}
 
-// function secChange() {
-//     secCount += 1;
-//     secText.innerHTML = secCount;
-//     if (secCount === 60) {
-//         clearInterval(changeSec);
-//         secCount= 0;
-//         setInterval(secChange, 1000);
-//     }
-// }
+    if (minCount === 60) {
+        hourCount += 1;
+        minCount = 0;
+        hourText.innerHTML = hourCount;
+    }
+
+    if (minCount < 10) {
+        minText.innerHTML = '0' + minCount
+    }
+
+    if (hourCount > 12) {
+        hourCount = 1;
+        hourText.innerHTML = hourCount;
+    } if (hourCount < 10) {
+        hourText.innerHTML = '0' + hourCount + ':'
+    } else{
+        hourText.innerHTML = hourCount + ':'
+    }
+}
 
 
