@@ -15,9 +15,9 @@ function timeChange() {
         minText.innerHTML = minCount;
     }
     if (secCount < 10) {
-        secText.innerHTML = ':0' + secCount
+        secText.innerHTML = `:0 ${secCount}`
     } else{
-        secText.innerHTML = ':' + secCount
+        secText.innerHTML = `: ${secCount}`
     }
 
     if (minCount === 60) {
@@ -27,16 +27,16 @@ function timeChange() {
     }
 
     if (minCount < 10) {
-        minText.innerHTML = '0' + minCount
+        minText.innerHTML = `0 ${minCount}`
     }
 
     if (hourCount > 12) {
         hourCount = 1;
         hourText.innerHTML = hourCount;
     } if (hourCount < 10) {
-        hourText.innerHTML = '0' + hourCount + ':'
+        hourText.innerHTML = `0 ${hourCount}:`
     } else{
-        hourText.innerHTML = hourCount + ':'
+        hourText.innerHTML = `${hourCount} :`
     }
 }
 
