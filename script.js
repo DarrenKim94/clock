@@ -15,7 +15,7 @@ function timeChange() {
         minText.innerHTML = minCount;
     }
     if (secCount < 10) {
-        secText.innerHTML = `:0 ${secCount}`
+        secText.innerHTML = `:0${secCount}`
     } else{
         secText.innerHTML = `: ${secCount}`
     }
@@ -27,7 +27,7 @@ function timeChange() {
     }
 
     if (minCount < 10) {
-        minText.innerHTML = `0 ${minCount}`
+        minText.innerHTML = `0${minCount}`
     }
 
     if (hourCount > 12) {
